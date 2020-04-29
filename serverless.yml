@@ -20,13 +20,59 @@ provider:
   # the following line. Also, make sure to not
   # commit your .env.
   #
-  #environment:
+  environment:
+    tableName: calendar-test-db
   #  SAMPLE_ENV_VAR: ${env:SAMPLE_ENV_VAR}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: 'arn:aws:dynamodb:us-east-1:*:*'
 
 functions:
-  hello:
-    handler: handler.hello
+  createEvent:
+    handler: apps/calendar/routes/create.main
     events:
       - http:
-          path: hello
+          path: events
+          method: post
+          cors: true
+          authorizer: aws_iam
+  getEvent:
+    handler: apps/calendar/routes/get.main
+    events:
+      - http:
+          path: events/{id}
           method: get
+          cors: true
+          authorizer: aws_iam
+  listEvents:
+    handler: apps/calendar/routes/list.main
+    events:
+      - http:
+          path: events
+          method: get
+          cors: true
+          authorizer: aws_iam
+  updateEvent:
+    handler: apps/calendar/routes/update.main
+    events:
+      - http:
+          path: events/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+  deleteEvent:
+    handler: apps/calendar/routes/delete.main
+    events:
+      - http:
+          path: events/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam

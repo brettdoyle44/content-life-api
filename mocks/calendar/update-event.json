@@ -1,0 +1,11 @@
+{
+  "body": "{\"header\":\"This is new\",\"details\":\"Something clever\"}",
+  "pathParameters": {
+    "id": "9412d2a0-8a5b-11ea-86e6-f9629dc7e907"
+  },
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}

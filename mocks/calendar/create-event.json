@@ -1,0 +1,8 @@
+{
+  "body": "{\"header\":\"another one\",\"details\":\"Test refactor\",\"startDate\":\"tuesday at 5\", \"endDate\":\"wednesday at 6\"}",
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}
