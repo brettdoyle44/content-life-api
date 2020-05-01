@@ -1,5 +1,5 @@
 {
-  "body": "{\"header\":\"another one\",\"details\":\"Test refactor\",\"startDate\":\"tuesday at 5\", \"endDate\":\"wednesday at 6\"}",
+  "body": "{\"header\":\"First test\",\"details\":\"Testing if arrays work\",\"targetDate\":\"friday at 5\", \"endDate\":\"friday at 6\"}",
   "requestContext": {
     "identity": {
       "cognitoIdentityId": "USER-SUB-1234"

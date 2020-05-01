@@ -1,0 +1,11 @@
+{
+  "body": "{\"header\":\"Update test\",\"details\":\"Normal testing stuff\",\"startDate\":\"friday at 5\", \"attachments\":[\"attachment4.jpg\",\"attachment7.jpg\"], \"collaborators\":[\"bryan\",\"john\",\"shiny\"] }",
+  "pathParameters": {
+    "id": "bc8f2540-8b4a-11ea-8f1e-cdf371de3b76"
+  },
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}

@@ -4,18 +4,19 @@ import dynamoDb from '../../../libs/dynamodb-lib';
 export const main = handler(async (event, context) => {
   const data = JSON.parse(event.body);
   const params = {
-    TableName: process.env.eventTable,
+    TableName: process.env.ideaTable,
     Key: {
       userId: event.requestContext.identity.cognitoIdentityId,
-      eventId: event.pathParameters.id,
+      ideaId: event.pathParameters.id,
     },
     UpdateExpression:
-      'SET header = :header, details = :details, startDate = :startDate, endDate = :endDate',
+      'SET header = :header, details = :details, targetDate = :targetDate, attachments = :attachments, collaborators = :collaborators',
     ExpressionAttributeValues: {
       ':header': data.header || null,
       ':details': data.details || null,
-      ':startDate': data.startDate || null,
-      ':endDate': data.endDate || null,
+      ':attachments': { SS: [...data.attachments] } || null,
+      ':collaborators': { SS: [...data.collaborators] } || null,
+      ':targetDate': data.startDate || null,
     },
     ReturnValues: 'ALL_NEW',
   };

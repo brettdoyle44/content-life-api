@@ -6,14 +6,15 @@ export const main = handler(async (event, context) => {
   const data = JSON.parse(event.body);
 
   const params = {
-    TableName: process.env.eventTable,
+    TableName: process.env.ideaTable,
     Item: {
       userId: event.requestContext.identity.cognitoIdentityId,
-      eventId: uuid.v1(),
+      ideaId: uuid.v1(),
       header: data.header,
       details: data.details,
-      startDate: data.startDate,
-      endDate: data.endDate,
+      attachments: { SS: [...data.attachments] },
+      collaborators: { SS: [...data.collaborators] },
+      targetDate: data.targetDate,
       createdAt: Date.now(),
     },
   };

@@ -21,7 +21,8 @@ provider:
   # commit your .env.
   #
   environment:
-    tableName: calendar-test-db
+    eventTable: calendar-test-db
+    ideaTable: idea-test-db
   #  SAMPLE_ENV_VAR: ${env:SAMPLE_ENV_VAR}
   iamRoleStatements:
     - Effect: Allow
@@ -73,6 +74,46 @@ functions:
     events:
       - http:
           path: events/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam
+  createIdea:
+    handler: apps/ideas/routes/create.main
+    events:
+      - http:
+          path: ideas
+          method: post
+          cors: true
+          authorizer: aws_iam
+  getIdea:
+    handler: apps/ideas/routes/get.main
+    events:
+      - http:
+          path: ideas/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+  listIdeas:
+    handler: apps/ideas/routes/list.main
+    events:
+      - http:
+          path: ideas
+          method: get
+          cors: true
+          authorizer: aws_iam
+  updateIdea:
+    handler: apps/ideas/routes/update.main
+    events:
+      - http:
+          path: ideas/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+  deleteIdea:
+    handler: apps/ideas/routes/delete.main
+    events:
+      - http:
+          path: ideas/{id}
           method: delete
           cors: true
           authorizer: aws_iam

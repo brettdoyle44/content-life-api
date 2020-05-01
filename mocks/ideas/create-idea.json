@@ -1,0 +1,8 @@
+{
+  "body": "{\"header\":\"Second test\",\"details\":\"Normal testing stuff\",\"startDate\":\"friday at 5\", \"attachments\":[\"attachment1.jpg\",\"attachment2.jpg\"], \"collaborators\":[\"brett\",\"john\"] }",
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}
