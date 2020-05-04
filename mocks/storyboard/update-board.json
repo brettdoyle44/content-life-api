@@ -1,0 +1,12 @@
+{
+  "body": "{\"image\":\"image18.jpg\",\"script\":\"Update script\",\"actions\":\"Update actions\"}",
+  "pathParameters": {
+    "boardId": "a4a705c0-8c16-11ea-9040-5bf46275047b",
+    "storyId": "d4185df0-8c15-11ea-a323-cd7154c82250"
+  },
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}

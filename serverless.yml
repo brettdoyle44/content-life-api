@@ -23,6 +23,8 @@ provider:
   environment:
     eventTable: calendar-test-db
     ideaTable: idea-test-db
+    storyTable: storyboard-test-db
+    boardTable: board-test-db
   #  SAMPLE_ENV_VAR: ${env:SAMPLE_ENV_VAR}
   iamRoleStatements:
     - Effect: Allow
@@ -114,6 +116,70 @@ functions:
     events:
       - http:
           path: ideas/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam
+  createStory:
+    handler: apps/storyboard/routes/createStory.main
+    events:
+      - http:
+          path: stories
+          method: post
+          cors: true
+          authorizer: aws_iam
+  createBoard:
+    handler: apps/storyboard/routes/createBoard.main
+    events:
+      - http:
+          path: boards
+          method: post
+          cors: true
+          authorizer: aws_iam
+  listStories:
+    handler: apps/storyboard/routes/listStories.main
+    events:
+      - http:
+          path: stories
+          method: get
+          cors: true
+          authorizer: aws_iam
+  listBoards:
+    handler: apps/storyboard/routes/listBoards.main
+    events:
+      - http:
+          path: boards/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+  updateStory:
+    handler: apps/storyboard/routes/updateStory.main
+    events:
+      - http:
+          path: stories/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+  updateBoard:
+    handler: apps/storyboard/routes/updateBoard.main
+    events:
+      - http:
+          path: board/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+  deleteStory:
+    handler: apps/storyboard/routes/deleteStory.main
+    events:
+      - http:
+          path: story/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam
+  deleteBoard:
+    handler: apps/storyboard/routes/deleteBoard.main
+    events:
+      - http:
+          path: board/{id}
           method: delete
           cors: true
           authorizer: aws_iam

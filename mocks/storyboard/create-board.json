@@ -1,0 +1,8 @@
+{
+  "body": "{\"storyId\":\"d4185df0-8c15-11ea-a323-cd7154c82250\",\"image\":\"image3.jpg\",\"script\":\"Take two: This is a script\",\"actions\":\"Second Board: This is an action\"}",
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}

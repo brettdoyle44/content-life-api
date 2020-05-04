@@ -1,0 +1,8 @@
+{
+  "body": "{\"header\":\"Story Test 1\",\"details\":\"This is a storyboard\"}",
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}

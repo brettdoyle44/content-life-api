@@ -1,0 +1,11 @@
+{
+  "pathParameters": {
+    "storyId": "d4185df0-8c15-11ea-a323-cd7154c82250",
+    "boardId": "bf7beb40-8c16-11ea-847d-35990dff5ce7"
+  },
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}
