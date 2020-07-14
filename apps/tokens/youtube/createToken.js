@@ -1,4 +1,3 @@
-import * as uuid from 'uuid';
 import handler from '../../../libs/handler-lib';
 import dynamoDb from '../../../libs/dynamodb-lib';
 
@@ -6,15 +5,11 @@ export const main = handler(async (event, context) => {
   const data = JSON.parse(event.body);
 
   const params = {
-    TableName: process.env.boardTable,
+    TableName: process.env.googleTokenStore,
     Item: {
-      storyId: data.storyId,
-      boardId: uuid.v1(),
-      image: data.image,
-      script: data.script,
-      actions: data.actions,
-      idx: data.idx,
-      createdAt: Date.now(),
+      userId: event.requestContext.identity.cognitoIdentityId,
+      googleToken: data.googleToken,
+      googleRefreshToken: data.googleRefreshToken,
     },
   };
 

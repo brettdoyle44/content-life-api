@@ -6,15 +6,16 @@ export const main = handler(async (event, context) => {
   const params = {
     TableName: process.env.boardTable,
     Key: {
-      storyId: event.pathParameters.storyId,
-      boardId: event.pathParameters.boardId,
+      storyId: data.storyId,
+      boardId: data.boardId,
     },
     UpdateExpression:
-      'SET script = :script, actions = :actions, image = :image',
+      'SET script = :script, actions = :actions, image = :image, idx = :idx',
     ExpressionAttributeValues: {
       ':script': data.script || null,
       ':actions': data.actions || null,
       ':image': data.image || null,
+      ':idx': data.idx || 0,
     },
     ReturnValues: 'ALL_NEW',
   };

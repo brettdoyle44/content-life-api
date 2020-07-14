@@ -16,7 +16,7 @@ export const main = handler(async (event, context) => {
       ':details': data.details || null,
       ':attachments': { SS: [...data.attachments] } || null,
       ':collaborators': { SS: [...data.collaborators] } || null,
-      ':targetDate': data.startDate || null,
+      ':targetDate': data.targetDate || null,
     },
     ReturnValues: 'ALL_NEW',
   };

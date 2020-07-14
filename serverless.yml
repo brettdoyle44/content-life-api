@@ -25,7 +25,9 @@ provider:
     ideaTable: idea-test-db
     storyTable: storyboard-test-db
     boardTable: board-test-db
-  #  SAMPLE_ENV_VAR: ${env:SAMPLE_ENV_VAR}
+    tokenStore: tokenStore-test-db
+    googleTokenStore: googleTokenStore-test-db
+
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -120,7 +122,7 @@ functions:
           cors: true
           authorizer: aws_iam
   createStory:
-    handler: apps/storyboard/routes/createStory.main
+    handler: apps/storyboard/routes/createStories.main
     events:
       - http:
           path: stories
@@ -181,5 +183,29 @@ functions:
       - http:
           path: board/{id}
           method: delete
+          cors: true
+          authorizer: aws_iam
+  createFacebookToken:
+    handler: apps/tokens/facebook/createToken.main
+    events:
+      - http:
+          path: fbtoken
+          method: post
+          cors: true
+          authorizer: aws_iam
+  createGoogleToken:
+    handler: apps/tokens/youtube/createToken.main
+    events:
+      - http:
+          path: googletoken
+          method: post
+          cors: true
+          authorizer: aws_iam
+  getToken:
+    handler: apps/tokens/facebook/getToken.main
+    events:
+      - http:
+          path: tokens
+          method: get
           cors: true
           authorizer: aws_iam

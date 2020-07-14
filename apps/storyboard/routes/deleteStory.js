@@ -2,6 +2,7 @@ import handler from '../../../libs/handler-lib';
 import dynamoDb from '../../../libs/dynamodb-lib';
 
 export const main = handler(async (event, context) => {
+  const theStoryId = event.pathParameters.id;
   const boardListParams = {
     TableName: process.env.boardTable,
     KeyConditionExpression: 'storyId = :storyId',
@@ -17,7 +18,7 @@ export const main = handler(async (event, context) => {
       await dynamoDb.delete({
         TableName: process.env.boardTable,
         Key: {
-          storyId: event.pathParameters.storyId,
+          storyId: theStoryId,
           boardId: board.boardId,
         },
       });
@@ -27,7 +28,7 @@ export const main = handler(async (event, context) => {
       TableName: process.env.storyTable,
       Key: {
         userId: event.requestContext.identity.cognitoIdentityId,
-        storyId: event.pathParameters.storyId,
+        storyId: theStoryId,
       },
     };
 

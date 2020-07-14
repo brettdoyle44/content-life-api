@@ -1,0 +1,8 @@
+{
+  "body": "{\"googleToken\":\"324235235235235\", \"googleRefreshToken\":\"2134908421refresh\"}",
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}
