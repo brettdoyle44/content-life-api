@@ -201,11 +201,19 @@ functions:
           method: post
           cors: true
           authorizer: aws_iam
-  getToken:
+  getFacebookToken:
     handler: apps/tokens/facebook/getToken.main
     events:
       - http:
-          path: tokens
+          path: fbtoken
+          method: get
+          cors: true
+          authorizer: aws_iam
+  getGoogleToken:
+    handler: apps/tokens/youtube/getToken.main
+    events:
+      - http:
+          path: googletoken
           method: get
           cors: true
           authorizer: aws_iam
