@@ -9,6 +9,7 @@ export const main = handler(async (event, context) => {
     Item: {
       userId: event.requestContext.identity.cognitoIdentityId,
       facebookToken: data.facebookToken,
+      instagramId: data.instagramId,
     },
   };
 
