@@ -12,6 +12,7 @@ export const main = handler(async (event, context) => {
       ideaId: uuid.v1(),
       header: data.header,
       details: data.details,
+      platform: data.platform,
       attachments: { SS: [...data.attachments] },
       collaborators: { SS: [...data.collaborators] },
       targetDate: data.targetDate,

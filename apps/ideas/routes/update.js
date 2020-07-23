@@ -10,10 +10,11 @@ export const main = handler(async (event, context) => {
       ideaId: event.pathParameters.id,
     },
     UpdateExpression:
-      'SET header = :header, details = :details, targetDate = :targetDate, attachments = :attachments, collaborators = :collaborators',
+      'SET header = :header, details = :details, targetDate = :targetDate, platform = :platform, attachments = :attachments, collaborators = :collaborators',
     ExpressionAttributeValues: {
       ':header': data.header || null,
       ':details': data.details || null,
+      ':platform': data.platform || null,
       ':attachments': { SS: [...data.attachments] } || null,
       ':collaborators': { SS: [...data.collaborators] } || null,
       ':targetDate': data.targetDate || null,

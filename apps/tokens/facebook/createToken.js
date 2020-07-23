@@ -10,6 +10,7 @@ export const main = handler(async (event, context) => {
       userId: event.requestContext.identity.cognitoIdentityId,
       facebookToken: data.facebookToken,
       instagramId: data.instagramId,
+      username: data.username,
     },
   };
 
