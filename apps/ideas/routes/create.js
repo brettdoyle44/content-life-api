@@ -13,7 +13,7 @@ export const main = handler(async (event, context) => {
       header: data.header,
       details: data.details,
       platform: data.platform,
-      status: data.status,
+      currentStatus: data.currentStatus,
       attachments: { SS: [...data.attachments] },
       collaborators: { SS: [...data.collaborators] },
       targetDate: data.targetDate,
